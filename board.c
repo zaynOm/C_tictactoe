@@ -19,20 +19,49 @@ void addToBoard(int pos, char pc)
                 puts("Not Empty x_o\n");
 }
 
+
 int checkStatus(char player)
 {
         int i;
-        for (i = 0; i < 9; i+3)
+
+        if (board[0] == player && board[4] == player && board[8] == player)
+                return 1;
+
+        if (board[2] == player && board[4] == player && board[6] == player)
+                return 1;
+
+        for (i = 0; i < 7; i++)
         {
-                puts("this is for loop");
-                if ((board[i] == board[i+1] == board[i+2]) == player)
+                if (i % 3 == 0)
                 {
-                        printf("%c %c %c", board[i], board[i+1], board[i+2]);
-                        return (1);
+                        if (board[i] == player && board[i+1] == player && board[i+2] == player)
+                                return (1);
                 }
                 
+                if (i >= 0 && i <= 2)
+                {
+                        if (board[i] == player && board[i+3] == player && board[i+6] == player)
+                                return 1;
+                }
+        }
+        return 0;
+
+}
+
+int checkDraw()
+{
+        int i, count = 0;
+
+        for (i = 0; i < 9; i++)
+        {
+                if (board[i] != ' ')
+                        count++;
         }
 
+        if (count == 9)
+                return 33;
+
+        return 0;        
 }
 
 

@@ -3,5 +3,7 @@
 
 void printBoard();
 void addToBoard();
+int checkStatus(char player);
+int checkDraw();
 
 #endif

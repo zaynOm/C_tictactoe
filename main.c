@@ -30,7 +30,7 @@ int main(void)
         while (1)
         {
 
-                puts("Enter a pos");
+                printf("Enter a pos: ");
                 scanf(" %d", &pos);
                 if (!(0 < pos && pos < 10))
                 {
@@ -52,13 +52,17 @@ int main(void)
                 
                 if (checkStatus(player1) == 1)
                 {
-                        printf("Player %c won\n", player1);
+                        printf("---------Player %c won---------\n", player1);
                         break;
                 }
-                
                 else if (checkStatus(player2) == 1)
                 {
-                        printf("Player %c won\n", player2);
+                        printf("---------Player %c won---------\n", player2);
+                        break;
+                } 
+                else if (checkDraw() == 33)
+                {
+                        puts("-------It's a DRAW--------");
                         break;
                 }
 
